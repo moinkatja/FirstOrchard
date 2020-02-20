@@ -15,6 +15,7 @@ let diceImg=[
 ];
 
 buttonNewGame.onclick = function() {
+    status.style.display="block";
     this.disabled = true;
     buttonRollDice.style.display = "block";
     newGame(); 
