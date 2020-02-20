@@ -257,3 +257,17 @@ footer {
         width: 100%;
     }
 }
+
+@media (max-width: 600px) {
+    .grid-fruits {
+        width: 350px;
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .road {
+        margin-top: 20px;
+        width: 60px;
+        height: 60px;
+    }
+}
