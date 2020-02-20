@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>My first orchard-Game</title>
+        <link rel="stylesheet" href="ObstgartenSpiel.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>My first orchard game <img src="img/haba.png"></h1>
+        <div class="acc-container">
+            <div>
+                <input type="checkbox" name="accordion" id="idea" >
+                <label for="idea"> Game idea </label>
+                <div class="panel">
+                    Try to pick the fruits from the trees before the raven reaches the end of the path.
+                    If the player succeeds in harvesting all the fruits and has it all in the basket before the raven has reached the orchard, he/she wins. <br>
+                    If the raven passes the last path card and stands in the orchard before all the fruits have been picked, the player loses against the quick thief.<br>
+                    Good luck!
+                </div>
+            </div>
+            <div>
+                <input type="checkbox" name="accordion" id="rules" >
+                <label for="rules"> Rules </label>
+                <div class="panel">
+                    <ul>On the dice appears: 
+                        <li>One of the fruits: apple, cherry, pear or plum.
+                        A fruit will be picked and placed into the basket. 
+                        <br>If no fruit of that type is left on the tree, nothing happens. You should roll the dice once more.</li>
+                        <li>The raven.
+                        Oh dear! The raven approaches the orchard. <br>The raven will be moved one path card forward.
+                        <li>The fruit basket.<br>Pick any fruit from any tree and it will be placed in the basket.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button id="new-game">Play!</button>
+        <div><h2 id="status"></h2></div>       
+        <div id="dice-side" class="dice-roll">
+            <img id ="dice-pic" src="img/dice.png">
+        </div>
+        <div>          
+            <div id="square1" class="road"><img id = "rabe1" class="rabe" src="img/rabe.png"></div>
+            <div id="square2" class="road"><img id = "rabe2" class="rabe" src="img/rabe.png"></div>
+            <div id="square3" class="road"><img id = "rabe3" class="rabe" src="img/rabe.png"></div>
+            <div id="square4" class="road"><img id = "rabe4" class="rabe" src="img/rabe.png"></div>
+            <div id="square5" class="road"><img id = "rabe5" class="rabe" src="img/rabe.png"></div>
+        </div>
+        <div id="fruits" class="grid-fruits"> 
+            <div><img src="img/apfel.png" class="fruit-img"></div>
+            <div><img src="img/kirsche.png" class="fruit-img"></div>
+            <div><img src="img/birne.png" class="fruit-img"></div>
+            <div><img src="img/pflaume.png" class="fruit-img"></div>
+            <div id=apples>Apples = 4</div>
+            <div id=cherries>Cherries = 4</div>
+            <div id=pears>Pears = 4</div>
+            <div id=plums>Plums = 4</div>
+        </div>   
+        <footer>The game rules and idea are from <a href="https://www.haba.de/de_DE/meine-ersten-spiele-erster-obstgarten--003177" target="_blank">Haba</a></footer>
+        <script src="ObstgartenSpiel.js"></script>
+    </body>
+</html>
