@@ -150,6 +150,7 @@ input:checked + label::after {
 }
 
 #status {
+    display: none;
     position: relative;
     color:#638475;
     min-width: 100px;
