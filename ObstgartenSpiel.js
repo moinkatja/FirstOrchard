@@ -1,10 +1,12 @@
 window.addEventListener( 'DOMContentLoaded', newGame , false);
 let buttonNewGame = document.getElementById("new-game");
 let buttonRollDice = document.querySelector( '.dice-roll' );
-const diceSide = document.getElementById("dice-side");
+let diceSide = document.getElementById("dice-side");
 let status = document.getElementById("status");
 let apple, pear, plum, cherry, rabe;
 let img = document.getElementById("dice-pic");
+let fruitButton = document.querySelectorAll(".fruit-btn");
+let pickedFruit = document.querySelectorAll(".fruit-img");
 let diceImg=[
     'img/apfel.png',
     'img/kirsche.png',
@@ -156,72 +158,96 @@ function rollDice () {
         } 
         case 6:  
         img.src = diceImg[5];
-        let answer = prompt("You rolled a basket! Which fruit would you like to collect? Choose 1 = Apple, 2 = Cherry, 3 = Pear or 4 = Plum");
-        answer = Number(answer);
-        if (answer < 1 || answer > 4) { 
-            alert ("Not correct!");   
-            break;
+        status.innerHTML = 'Your rolled a basket! Click the fruit to collect!';
+        toggleButtons();
+        for (var i=0; i<4; i++) {
+            fruitButton[i].disabled == false;
+            pickedFruit[i].onclick = true;
+            pickedFruit[i].onclick = function() {
+            var s = (this.src).replace(/\\/g, '/');
+            s = s.substring(s.lastIndexOf('/')+ 1);
+            toggleButtons();
+            basketFill(s);
+            }
         }
-        switch(answer) {
-            case 1:  
-            if (apple <= 1) {
-                status.innerHTML = 'You chose an apple!';
-                apple--;
+    }  
+}        
+
+
+function basketFill(s) {
+    switch (s) {
+        case "apfel.png": 
+            status.innerHTML = 'You chose an apple!';
+            apple--;
+            if (apple < 1) {
                 document.getElementById("apples").innerHTML = "No more apples!";
                 checkWinner();
-                return apple;
+                break;
             }
             else {
-                status.innerHTML = 'You chose an apple!';
-                apple--;
                 document.getElementById("apples").innerHTML = "Apples = " + apple;   
                 return apple;
             }
-            case 2: 
-            if (cherry <= 1) {
-                status.innerHTML = 'You chose a cherry!';
-                cherry--;
+        
+        case "kirsche.png" :
+            status.innerHTML = 'You chose a cherry!';
+            cherry--;
+            if (cherry < 1) {
                 document.getElementById("cherries").innerHTML = "No more cherries!";
                 checkWinner();
+                break;
+            }
+            else {
+                document.getElementById("cherries").innerHTML = "Cherries = " + cherry;   
                 return cherry;
             }
-            else {
-                status.innerHTML = 'You chose a cherry!';
-                cherry--;
-                document.getElementById("cherries").innerHTML = "Cherries = " + cherry;
-                return cherry; 
-            }
-            case 3: 
-            if (pear <= 1) {
-                status.innerHTML = 'You chose a pear!';
-                pear--;
+        
+        case  "birne.png": 
+            status.innerHTML = 'You chose a pear!';
+            pear--;
+            if (pear< 1) {
                 document.getElementById("pears").innerHTML = "No more pears!";
                 checkWinner();
-                return pear;
+                break;
             }
             else {
-                status.innerHTML = 'You chose a pear!';
-                pear--;   
-                document.getElementById("pears").innerHTML = "Pears = " + pear;
+                document.getElementById("pears").innerHTML = "Pears = " + pear;   
                 return pear;
-                }
-            case 4: 
-            if (plum <=1) {
-                status.innerHTML = 'You chose a plum!';
-                plum--;
+            }
+
+        case "pflaume.png": 
+            status.innerHTML = 'You chose a plum!';
+            plum--;
+            if (plum< 1) {
                 document.getElementById("plums").innerHTML = "No more plums!";
                 checkWinner();
-                return plum;
+                break;
             }
             else {
-                status.innerHTML = 'You chose a plum!';
-                plum--;
-                document.getElementById("plums").innerHTML = "Plums = " + plum;
-                return plum;
+                document.getElementById("plums").innerHTML = "Plums = " + plum; 
+                return plum;  
+        
             }
+    }
+ }
+
+ function toggleButtons() {
+    for (var i=0; i<4; i++) {
+        if (fruitButton[i].disabled == true)
+        {
+        fruitButton[i].disabled = false;
+        pickedFruit[i].onclick = false;
+        }
+        else {
+        fruitButton[i].disabled = true;
+        pickedFruit[i].onclick = true;
         }
     }
-}
+ }
+    
+   
+    
+
 
 
        
